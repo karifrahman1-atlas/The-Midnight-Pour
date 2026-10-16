@@ -1,29 +1,29 @@
 const coffeeMenus = {
   espresso: [
-    { name: "Double Espresso", description: "Bold, direct, full of character.", price: "৳220", image: "photo-1510707577719-ae7c14805e3a" },
-    { name: "Cappuccino", description: "Velvety milk, balanced espresso.", price: "৳280", image: "photo-1534778101976-62847782c213" },
-    { name: "Flat White", description: "Smooth texture, rich coffee.", price: "৳290", image: "photo-1541167760496-1628856ab772" },
-    { name: "Café Mocha", description: "Espresso with dark chocolate.", price: "৳320", image: "photo-1570968915860-54d5c301fa9f" }
+    { name: "Double Espresso", description: "Concentrated and bold · dark chocolate, toasted nuts", price: "৳220", strength: "Strong" },
+    { name: "Cappuccino", description: "Espresso, steamed milk, airy foam · balanced and comforting", price: "৳280", strength: "Medium" },
+    { name: "Flat White", description: "Silky microfoam with a clear, rich coffee finish", price: "৳290", strength: "Medium" },
+    { name: "Café Mocha", description: "Espresso and dark chocolate with a smooth milk finish", price: "৳320", strength: "Sweet & rich" }
   ],
   cold: [
-    { name: "Iced Americano", description: "Crisp, clean, and refreshing.", price: "৳250", image: "photo-1517701604599-bb29b565090c" },
-    { name: "Cold Brew", description: "Slow-steeped, smooth finish.", price: "৳290", image: "photo-1461023058943-07fcbe16d735" },
-    { name: "Iced Latte", description: "Chilled espresso and milk.", price: "৳300", image: "photo-1461023058943-07fcbe16d735" },
-    { name: "Vanilla Cold Brew", description: "A mellow hint of vanilla.", price: "৳330", image: "photo-1517701604599-bb29b565090c" }
+    { name: "Iced Americano", description: "Espresso over ice · crisp, clean, and refreshing", price: "৳250", strength: "Strong" },
+    { name: "Cold Brew", description: "Slow-steeped for a rounder taste and smooth finish", price: "৳290", strength: "Smooth" },
+    { name: "Iced Latte", description: "Chilled espresso and milk · mellow and easy-drinking", price: "৳300", strength: "Milky" },
+    { name: "Vanilla Cold Brew", description: "Slow-steeped coffee with a gentle vanilla note", price: "৳330", strength: "Sweet & smooth" }
   ],
   signature: [
-    { name: "Midnight Mocha", description: "Dark chocolate, espresso, silky finish.", price: "৳350", image: "photo-1570968915860-54d5c301fa9f" },
-    { name: "Velvet Cold Brew", description: "Smooth, chilled, quietly bold.", price: "৳340", image: "photo-1461023058943-07fcbe16d735" },
-    { name: "After Hours", description: "A deeper, espresso-forward pour.", price: "৳360", image: "photo-1510707577719-ae7c14805e3a" },
-    { name: "Chapter One", description: "A gentle signature to begin with.", price: "৳330", image: "photo-1541167760496-1628856ab772" }
+    { name: "Midnight Mocha", description: "Dark chocolate, espresso, and a silky finish", price: "৳350", strength: "Rich" },
+    { name: "Velvet Cold Brew", description: "A chilled, smooth coffee with a quietly bold profile", price: "৳340", strength: "Smooth" },
+    { name: "After Hours", description: "An espresso-forward house-style drink for bold-coffee fans", price: "৳360", strength: "Strong" },
+    { name: "Chapter One", description: "A gentler signature drink for those exploring coffee", price: "৳330", strength: "Easy-going" }
   ]
 };
 
 const coffeeGrid = document.querySelector("#coffee-grid");
 function renderMenu(category) {
-  coffeeGrid.innerHTML = coffeeMenus[category].map(coffee => `
+  coffeeGrid.innerHTML = coffeeMenus[category].map((coffee, index) => `
     <article class="coffee-card">
-      <div class="coffee-image" style="background-image:url('https://images.unsplash.com/${coffee.image}?auto=format&fit=crop&w=700&q=80')"></div>
+      <div class="coffee-card-top"><span class="coffee-number">0${index + 1}</span><span class="coffee-strength">${coffee.strength}</span></div>
       <div class="coffee-card-body">
         <h3>${coffee.name}</h3>
         <p>${coffee.description}</p>
@@ -47,10 +47,10 @@ document.querySelectorAll(".menu-tab").forEach(tab => {
 });
 
 const moods = {
-  strong: { name: "Double Espresso", description: "Bold, direct, and full of character.", price: "৳220", image: "photo-1510707577719-ae7c14805e3a" },
-  cold: { name: "Iced Americano", description: "Crisp, refreshing, and easy to settle into.", price: "৳250", image: "photo-1517701604599-bb29b565090c" },
-  smooth: { name: "Flat White", description: "A silky texture with a rich coffee finish.", price: "৳290", image: "photo-1541167760496-1628856ab772" },
-  different: { name: "Midnight Mocha", description: "Dark chocolate meets a deep espresso pour.", price: "৳350", image: "photo-1570968915860-54d5c301fa9f" }
+  strong: { name: "Double Espresso", description: "Concentrated, bold, with dark chocolate and toasted-nut notes.", price: "৳220", tip: "Best if you enjoy a short, intense coffee." },
+  cold: { name: "Iced Americano", description: "Crisp espresso over ice with a clean, refreshing finish.", price: "৳250", tip: "A good starting point for black iced coffee." },
+  smooth: { name: "Flat White", description: "Espresso softened by silky milk, without losing its coffee character.", price: "৳290", tip: "Try this if you like milk in your coffee but want the espresso to shine." },
+  different: { name: "Midnight Mocha", description: "Dark chocolate meets espresso for a rich, dessert-like cup.", price: "৳350", tip: "For a sweeter drink with a deeper coffee base." }
 };
 document.querySelectorAll(".mood-option").forEach(button => {
   button.addEventListener("click", () => {
@@ -58,9 +58,8 @@ document.querySelectorAll(".mood-option").forEach(button => {
     button.classList.add("active");
     const mood = moods[button.dataset.mood];
     document.querySelector("#mood-name").textContent = mood.name;
-    document.querySelector("#mood-description").textContent = mood.description;
+    document.querySelector("#mood-description").textContent = `${mood.description} ${mood.tip}`;
     document.querySelector("#mood-price").textContent = mood.price;
-    document.querySelector("#mood-image").style.backgroundImage = `url('https://images.unsplash.com/${mood.image}?auto=format&fit=crop&w=400&q=80')`;
   });
 });
 
