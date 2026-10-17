@@ -1,21 +1,21 @@
 const coffeeMenus = {
   espresso: [
-    { name: "Double Espresso", description: "Two short shots for a concentrated, intense cup. Best if you like coffee flavour up front, with no milk to soften it.", price: "৳220", strength: "Bold" },
-    { name: "Cappuccino", description: "Espresso, steamed milk and a light foam cap. A familiar choice if you want coffee with a softer, airy texture.", price: "৳280", strength: "Balanced" },
-    { name: "Flat White", description: "Silky microfoam with espresso in a smaller cup, so the milk smooths the texture without taking over the coffee taste.", price: "৳290", strength: "Smooth" },
-    { name: "Café Mocha", description: "Espresso and chocolate for a richer, sweeter drink. Choose it when you want coffee with a cocoa-led finish.", price: "৳320", strength: "Chocolatey" }
+    { name: "Double Espresso", description: "Two shots. No milk, no detour, no hiding place for the coffee flavour.", price: "৳220", strength: "Bold" },
+    { name: "Cappuccino", description: "Espresso under steamed milk and a soft foam cap. Familiar, balanced, and not trying to be the loudest drink on the table.", price: "৳280", strength: "Balanced" },
+    { name: "Flat White", description: "Silky milk, a smaller cup, and espresso that still gets a word in. For the milk-drink person who means business.", price: "৳290", strength: "Smooth" },
+    { name: "Café Mocha", description: "Espresso meets chocolate. A little indulgent, entirely unapologetic, and not pretending to be a black coffee.", price: "৳320", strength: "Chocolatey" }
   ],
   cold: [
-    { name: "Iced Americano", description: "Espresso, cold water and ice. A straightforward black iced coffee without milk or added sweetness by default.", price: "৳250", strength: "Bold" },
-    { name: "Cold Brew", description: "Steeped in cool water over time for a rounder taste. A good comparison with iced coffee if you find sharper flavours too intense.", price: "৳290", strength: "Mellow" },
-    { name: "Iced Latte", description: "Espresso, cold milk and ice. A creamy, approachable option when you want a chilled drink rather than a black coffee.", price: "৳300", strength: "Creamy" },
-    { name: "Vanilla Cold Brew", description: "Cold brew with vanilla sweetness to soften the coffee’s edge. Ask for less syrup if you prefer it less sweet.", price: "৳330", strength: "Lightly sweet" }
+    { name: "Iced Americano", description: "Espresso, cold water, ice. Clean, brisk and refreshingly uninterested in syrup.", price: "৳250", strength: "Bold" },
+    { name: "Cold Brew", description: "Slow-steeped in cool water for a rounder cup. Less sharpness, more patience. Coffee took its time; you can too.", price: "৳290", strength: "Mellow" },
+    { name: "Iced Latte", description: "Cold milk, espresso and ice. Smooth, familiar, and built for afternoons that have no business being this hot.", price: "৳300", strength: "Creamy" },
+    { name: "Vanilla Cold Brew", description: "Cold brew with a hint of vanilla. Sweet enough to be interesting, not so sweet the coffee disappears. Ask about the current recipe.", price: "৳330", strength: "Lightly sweet" }
   ],
   signature: [
-    { name: "Midnight Mocha", description: "The house-style idea: espresso and dark chocolate, built for people who want a fuller, cocoa-forward coffee.", price: "৳350", strength: "Rich" },
-    { name: "Velvet Cold Brew", description: "A chilled signature concept with a mellow profile. Ask how it is brewed and sweetened before ordering.", price: "৳340", strength: "Smooth" },
-    { name: "After Hours", description: "A bolder, espresso-led house drink for people who want coffee to remain the main flavour.", price: "৳360", strength: "Bold" },
-    { name: "Chapter One", description: "A gentler, milk-friendly house drink for anyone ready to try something beyond a standard latte.", price: "৳330", strength: "Easy-going" }
+    { name: "Midnight Mocha", description: "Our imagined signature: espresso and dark chocolate with a late-night mood. Dessert energy, coffee credentials.", price: "৳350", strength: "Rich" },
+    { name: "Velvet Cold Brew", description: "A smooth, chilled house concept for the slow-sippers. Ask about the recipe and sweetness before ordering.", price: "৳340", strength: "Smooth" },
+    { name: "After Hours", description: "An espresso-first house concept. No plot twist: coffee stays in the lead role.", price: "৳360", strength: "Bold" },
+    { name: "Chapter One", description: "A softer, milk-friendly house concept for anyone ready to leave the default latte setting for a day.", price: "৳330", strength: "Easy-going" }
   ]
 };
 
@@ -51,9 +51,9 @@ document.querySelectorAll(".menu-tab").forEach(tab => {
 
 const moods = {
   strong: { name: "Double Espresso", description: "Concentrated and intense, with no milk to soften the espresso.", price: "৳220", tip: "Choose this if you like a short, direct coffee with no milk." },
-  cold: { name: "Iced Americano", description: "Crisp espresso over ice with a clean, refreshing finish.", price: "৳250", tip: "Try this if you prefer black iced coffee." },
-  smooth: { name: "Flat White", description: "Silky milk softens the espresso without hiding its coffee character.", price: "৳290", tip: "A good starting point if you like milk in your coffee." },
-  different: { name: "Midnight Mocha", description: "Dark chocolate meets espresso for a rich, dessert-like cup.", price: "৳350", tip: "Choose this if you want a sweeter, richer drink." }
+  cold: { name: "Iced Americano", description: "Espresso, water and ice. A clean reset for a warm Dhaka day.", price: "৳250", tip: "Try this if you prefer black iced coffee." },
+  smooth: { name: "Flat White", description: "Silky milk, clear coffee flavour. A good compromise that doesn’t feel like one.", price: "৳290", tip: "A good starting point if you like milk in your coffee." },
+  different: { name: "Midnight Mocha", description: "Dark chocolate and espresso. The “I came for coffee” loophole.", price: "৳350", tip: "Choose this if you want a sweeter, richer drink." }
 };
 document.querySelectorAll(".mood-option").forEach(button => {
   button.addEventListener("click", () => {
